@@ -8,6 +8,11 @@ module.exports = {
     chainWebpack: config => {
         config.resolve.alias.set(
             '@assets', resolve('src/assets')
-        )
-    }
+        ),
+        config.plugin('html').tap(arg => {
+            arg[0].title = "测试"
+            return arg
+        })
+    },
+    
 }
